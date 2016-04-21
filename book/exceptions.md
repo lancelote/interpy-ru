@@ -12,7 +12,7 @@
 try:
     file = open('test.txt', 'rb')
 except IOError as e:
-    print('An IOError occurred. {}'.format(e.args[-1]))
+    print('Было вызвано исключение IOError. {}'.format(e.args[-1]))
 ```
 
 В примере выше мы перехватываем только исключение `IOError`. Многие новички не
@@ -27,7 +27,7 @@ except IOError as e:
 try:
     file = open('test.txt', 'rb')
 except (IOError, EOFError) as e:
-    print("An error occurred. {}".format(e.args[-1]))
+    print("Было вызвано исключение. {}".format(e.args[-1]))
 ```
 
 Другой методы заключается в обработке каждого исключения в отдельном блоке
@@ -38,10 +38,10 @@ except (IOError, EOFError) as e:
 try:
     file = open('test.txt', 'rb')
 except EOFError as e:
-    print("An EOF error occurred.")
+    print("Было вызвано исключение EOFError.")
     raise e
 except IOError as e:
-    print("An error occurred.")
+    print("Было вызвано исключение.")
     raise e
 ```
 
@@ -53,7 +53,7 @@ except IOError as e:
 try:
     file = open('test.txt', 'rb')
 except Exception:
-    # Some logging if you want
+    # Логгирование, если оно вам требуется
     raise
 ```
 
@@ -73,12 +73,12 @@ except Exception:
 try:
     file = open('test.txt', 'rb')
 except IOError as e:
-    print('An IOError occurred. {}'.format(e.args[-1]))
+    print('Было вызвано исключение IOError. {}'.format(e.args[-1]))
 finally:
     print("Я буду напечатан вне зависимости от исключений в блоке try!")
 
-# Output: An IOError occurred. No such file or directory
-# Я буду напечатан вне зависимости от исключений в блоке try!
+# Вывод: Было вызвано исключение IOError. No such file or directory
+#        Я буду напечатан вне зависимости от исключений в блоке try!
 ```
 
 ## ``try/else``
@@ -104,10 +104,10 @@ else:
 finally:
     print('Я буду исполнен в любом случае!')
 
-# Output: Я уверен исключений не будет!
-# Я буду исполнен, если в try не будет исключений.
-# Мои исключения не будете обрабатываться.
-# Я буду исполнен в любом случае!
+# Вывод: Я уверен исключений не будет!
+#        Я буду исполнен, если в try не будет исключений.
+#        Мои исключения не будете обрабатываться.
+#        Я буду исполнен в любом случае!
 ```
 
 Блок `else`, таким образом, исполняется при отсутствии исключений в блоке
