@@ -41,7 +41,7 @@ except EOFError as e:
     print("Было вызвано исключение EOFError.")
     raise e
 except IOError as e:
-    print("Было вызвано исключение.")
+    print("Было вызвано исключение IOError.")
     raise e
 ```
 
@@ -53,7 +53,7 @@ except IOError as e:
 try:
     file = open('test.txt', 'rb')
 except Exception:
-    # Логгирование, если оно вам требуется
+    # Логирование, если оно вам требуется
     raise
 ```
 
