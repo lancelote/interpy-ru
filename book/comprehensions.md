@@ -22,7 +22,7 @@
 элементы внутри списка. Результатом работы будет новый список после исполнения
 выражения с оглядкой на `for` и `if`.
 
-**Шаблон использования**
+**Шаблон использования:**
 
 ```python
 variable = [out_exp for out_exp in input_list if out_exp == 2]
@@ -33,7 +33,7 @@ variable = [out_exp for out_exp in input_list if out_exp == 2]
 ```python
 multiples = [i for i in range(30) if i % 3 is 0]
 print(multiples)
-# Output: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
+# Вывод: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
 ```
 
 Такой синтаксис может быть очень удобен для быстрого создания списков.
@@ -85,5 +85,5 @@ mcase_frequency = {
 ```python
 squared = {x**2 for x in [1, 1, 2]}
 print(squared)
-# Output: {1, 4}
+# Вывод: {1, 4}
 ```
