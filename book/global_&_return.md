@@ -10,7 +10,7 @@ def add(value1, value2):
 
 result = add(3, 5)
 print(result)
-# Output: 8
+# Вывод: 8
 ```
 
 Функция выше принимает два значения и возвращает их сумму. Мы также можем
@@ -21,9 +21,9 @@ def add(value1,value2):
     global result
     result = value1 + value2
 
-add(3,5)
+add(3, 5)
 print(result)
-# Output: 8
+# Вывод: 8
 ```
 
 Как несложно заметить, мы используем глобальную переменную `result`. Что это
@@ -56,8 +56,8 @@ def add(value1, value2):
     result = value1 + value2
 
 add(2, 4)
-result
-6
+print(result)
+Вывод: 6
 ```
 
 Во второй раз ошибок быть не должно. В реальной жизни от глобальных переменных
@@ -80,10 +80,10 @@ def profile():
 
 profile()
 print(name)
-# Output: Danny
+# Вывод: Danny
 
 print(age)
-# Output: 30
+# Вывод: 30
 ```
 
 **Примечание:** как я уже писал, данный метод использовать не рекомендуется.
@@ -100,10 +100,10 @@ def profile():
 
 profile_data = profile()
 print(profile_data[0])
-# Output: Danny
+# Вывод: Danny
 
 print(profile_data[1])
-# Output: 30
+# Вывод: 30
 ```
 
 Или общепринятое сокращение:
