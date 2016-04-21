@@ -67,7 +67,7 @@ adder = CDLL('./adder.so')
 
 # Находим сумму целых чисел
 res_int = adder.add_int(4,5)
-print "Sum of 4 and 5 = " + str(res_int)
+print("Сумма 4 и 5 = " + str(res_int))
 
 # Находим сумму действительных чисел
 a = c_float(5.5)
@@ -75,14 +75,14 @@ b = c_float(4.1)
 
 add_float = adder.add_float
 add_float.restype = c_float
-print "Sum of 5.5 and 4.1 = ", str(add_float(a, b))
+print("Сумма 5.5 и 4.1 = " + str(add_float(a, b)))
 ```
 
 Результат:
 
 ```
-Sum of 4 and 5 = 9
-Sum of 5.5 and 4.1 =  9.60000038147
+Сумма 4 и 5 = 9
+Сумма 5.5 и 4.1 =  9.60000038147
 ```
 
 В примере выше C файл содержит простой код - две функции, одна для нахождения
@@ -145,7 +145,7 @@ char *get_time()
 /* example.i */
 %module example
 %{
-/* Put header files here or function declarations like below */
+/* Помещаем сюда заголовочные файлы или объявления функций */
 extern double My_variable;
 extern int fact(int n);
 extern int my_mod(int x, int y);
@@ -211,7 +211,7 @@ Python:
 import addList
 
 l = [1,2,3,4,5]
-print "Sum of List - " + str(l) + " = " +  str(addList.add(l))
+print("Sum of List - " + str(l) + " = " +  str(addList.add(l)))
 ```
 
 Смотрится как обыкновенный Python код, который импортирует и использует Python
@@ -357,13 +357,13 @@ python setup.py install
 import addList
 
 l = [1,2,3,4,5]
-print "Sum of List - " + str(l) + " = " +  str(addList.add(l))
+print("Сумма элементов списка - " + str(l) + " = " +  str(addList.add(l)))
 ```
 
 Результат:
 
 ```
-Sum of List - [1, 2, 3, 4, 5] = 15
+Сумма элементов списка - [1, 2, 3, 4, 5] = 15
 ```
 
 В итоге, как вы можете видеть, мы получили наше первое C Python расширение,
