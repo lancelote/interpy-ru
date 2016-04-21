@@ -65,11 +65,11 @@ python -c "import csv,json;print json.dumps(list(csv.reader(open('csv_file.csv')
 ```python
 a_list = [[1, 2], [3, 4], [5, 6]]
 print(list(itertools.chain.from_iterable(a_list)))
-# Output: [1, 2, 3, 4, 5, 6]
+# Вывод: [1, 2, 3, 4, 5, 6]
 
-# or
+# или
 print(list(itertools.chain(*a_list)))
-# Output: [1, 2, 3, 4, 5, 6]
+# Вывод: [1, 2, 3, 4, 5, 6]
 ```
 
 ## Однострочные конструкторы
@@ -82,5 +82,4 @@ class A(object):
         self.__dict__.update({k: v for k, v in locals().items() if k != 'self'})
 ```
 
-Другие подобные однострочники можно найти на официальном сайте
-[официальном сайте](https://wiki.python.org/moin/Powerful%20Python%20One-Liners).
+Другие подобные однострочники можно найти на [официальном сайте](https://wiki.python.org/moin/Powerful%20Python%20One-Liners).
