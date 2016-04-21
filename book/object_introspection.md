@@ -16,7 +16,7 @@
 ```python
 my_list = [1, 2, 3]
 dir(my_list)
-# Output: ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__',
+# Вывод: ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__',
 # '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__',
 # '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__',
 # '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__',
@@ -36,19 +36,19 @@ dir(my_list)
 
 ```python
 print(type(''))
-# Output: <type 'str'>
+# Вывод: <type 'str'>
 
 print(type([]))
-# Output: <type 'list'>
+# Вывод: <type 'list'>
 
 print(type({}))
-# Output: <type 'dict'>
+# Вывод: <type 'dict'>
 
 print(type(dict))
-# Output: <type 'type'>
+# Вывод: <type 'type'>
 
 print(type(3))
-# Output: <type 'int'>
+# Вывод: <type 'int'>
 ```
 
 `id` возвращает уникальный индентификатор объекта. К примеру:
@@ -56,7 +56,7 @@ print(type(3))
 ```python
 name = "Yasoob"
 print(id(name))
-# Output: 139972439030304
+# Вывод: 139972439030304
 ```
 
 ## Модуль `inspect`
@@ -67,7 +67,7 @@ print(id(name))
 ```python
 import inspect
 print(inspect.getmembers(str))
-# Output: [('__add__', <slot wrapper '__add__' of ... ...
+# Вывод: [('__add__', <slot wrapper '__add__' of ... ...
 ```
 
 Существуют и другие методы анализа объектов в Python. Вы можете изучить их
