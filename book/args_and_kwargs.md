@@ -20,20 +20,20 @@
 
 ```python
 def test_var_args(f_arg, *argv):
-    print("first normal arg:", f_arg)
+    print("Первый позиционная аргумент:", f_arg)
     for arg in argv:
-        print("another arg through *argv:", arg)
+        print("Другой аргумент из *argv:", arg)
 
 test_var_args('yasoob', 'python', 'eggs', 'test')
 ```
 
 Результат будет таким:
 
-```python
-first normal arg: yasoob
-another arg through *argv: python
-another arg through *argv: eggs
-another arg through *argv: test
+```
+Первый позиционный аргумент: yasoob
+Другой аргумент из *argv: python
+Другой аргумент из *argv: eggs
+Другой аргумент из *argv: test
 ```
 
 Надеюсь, пример развеял возможную путаницу. Теперь перейдем к разговору о

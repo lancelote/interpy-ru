@@ -29,7 +29,7 @@ import pdb
 
 def make_bread():
     pdb.set_trace()
-    return "I don't have time"
+    return "У меня нет времени"
 
 print(make_bread())
 ```

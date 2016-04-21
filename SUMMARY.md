@@ -5,7 +5,7 @@
 * [Отладка](book/debugging.md)
 * [Генераторы](book/generators.md)
 * [map и filter](book/map_filter.md)
-* [Структура данных ``set``](book/set_-_data_structure.md)
+* [Структура данных `set`](book/set_-_data_structure.md)
 * [Тернарные операторы](book/ternary_operators.md)
 * [Декораторы](book/decorators.md)
 * [global и return](book/global_&_return.md)

@@ -16,7 +16,7 @@ for value in some_list:
             duplicates.append(value)
 
 print(duplicates)
-# Output: ['b', 'n']
+# Вывод: ['b', 'n']
 ```
 
 Но есть и более простое решение при помощи множества. Вы можете сделать
@@ -26,7 +26,7 @@ print(duplicates)
 some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
 duplicates = set([x for x in some_list if some_list.count(x) > 1])
 print(duplicates)
-# Output: set(['b', 'n'])
+# Вывод: set(['b', 'n'])
 ```
 
 У множеств также есть несколько дополнительных методов. Вот некоторые
@@ -40,7 +40,7 @@ print(duplicates)
 valid = set(['yellow', 'red', 'blue', 'green', 'black'])
 input_set = set(['red', 'brown'])
 print(input_set.intersection(valid))
-# Output: set(['red'])
+# Вывод: set(['red'])
 ```
 
 ## Разность
@@ -51,7 +51,7 @@ print(input_set.intersection(valid))
 valid = set(['yellow', 'red', 'blue', 'green', 'black'])
 input_set = set(['red', 'brown'])
 print(input_set.difference(valid))
-# Output: set(['brown'])
+# Вывод: set(['brown'])
 ```
 
 Множества также можно создавать с помощью новой нотации:
@@ -59,7 +59,7 @@ print(input_set.difference(valid))
 ```python
 a_set = {'red', 'blue', 'green'}
 print(type(a_set))
-# Output: <type 'set'>
+# Вывод: <type 'set'>
 ```
 
 Существуют и другими методы. Рекомендую ознакомиться с ними в официальной

@@ -51,7 +51,7 @@ def generator_function():
 for item in generator_function():
     print(item)
 
-# Output: 0
+# Вывод: 0
 # 1
 # 2
 # 3
@@ -114,15 +114,15 @@ def generator_function():
 
 gen = generator_function()
 print(next(gen))
-# Output: 0
+# Вывод: 0
 print(next(gen))
-# Output: 1
+# Вывод: 1
 print(next(gen))
-# Output: 2
+# Вывод: 2
 print(next(gen))
-# Output: Traceback (most recent call last):
-#            File "<stdin>", line 1, in <module>
-#         StopIteration
+# Вывод: Traceback (most recent call last):
+#          File "<stdin>", line 1, in <module>
+#        StopIteration
 ```
 
 Как видно, после прохождения по всем значениям `next()` начала вызывать
@@ -136,9 +136,9 @@ print(next(gen))
 ```python
 my_string = "Yasoob"
 next(my_string)
-# Output: Traceback (most recent call last):
-#      File "<stdin>", line 1, in <module>
-#    TypeError: str object is not an iterator
+# Вывод: Traceback (most recent call last):
+#          File "<stdin>", line 1, in <module>
+#        TypeError: str object is not an iterator
 ```
 
 Ок, это не то что ожидалось. Ошибка говорит, что `str` не итератор. И это
@@ -152,15 +152,15 @@ next(my_string)
 ```python
 int_var = 1779
 iter(int_var)
-# Output: Traceback (most recent call last):
-#   File "<stdin>", line 1, in <module>
-# TypeError: 'int' object is not iterable
+# Вывод: Traceback (most recent call last):
+#          File "<stdin>", line 1, in <module>
+#        TypeError: 'int' object is not iterable
 # int не итерируемый объект
 
 my_string = "Yasoob"
 my_iter = iter(my_string)
 next(my_iter)
-# Output: 'Y'
+# Вывод: 'Y'
 ```
 
 Теперь намного лучше. Я уверен, что вас заинтересовала эта тем.

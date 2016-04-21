@@ -36,9 +36,9 @@ state = "fat" if is_fat else "not fat"
 
 ```python
 fat = True
-fitness = ("skinny", "fat")[fat]
-print("Ali is ", fitness)
-# Output: Ali is fat
+fitness = ("худой", "толтый")[fat]
+print("Али ", fitness)
+# Вывод: Али толстый
 ```
 
 Это работает поскольку в Python `True == 1` и `False == 0`. Помимо кортежей
@@ -57,10 +57,10 @@ print("Ali is ", fitness)
 ```python
 condition = True
 print(2 if condition else 1/0)
-#Output is 2
+# ВыводЖ 2
 
 print((1/0, 2)[condition])
-#ZeroDivisionError is raised
+# Было вызвано исключение ZeroDivisionError
 ```
 
 Во втором примере сначала собирается кортеж, а затем находится элемент под

@@ -44,7 +44,7 @@ for i in range(5):
     value = list(map(lambda x: x(i), funcs))
     print(value)
 
-# Output:
+# Вывод:
 # [0, 0]
 # [1, 2]
 # [4, 4]
@@ -62,7 +62,7 @@ number_list = range(-5, 5)
 less_than_zero = list(filter(lambda x: x < 0, number_list))
 print(less_than_zero)
 
-# Output: [-5, -4, -3, -2, -1]
+# Вывод: [-5, -4, -3, -2, -1]
 ```
 
 `filer` уподобляется циклу, но он является встроенной функцией и работает
@@ -94,5 +94,5 @@ for num in list:
 from functools import reduce
 product = reduce( (lambda x, y: x * y), [1, 2, 3, 4] )
 
-# Output: 24
+# Вывод: 24
 ```
