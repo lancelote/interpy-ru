@@ -13,9 +13,9 @@ fruits = ['apple', 'banana', 'mango']
 for fruit in fruits:
     print(fruit.capitalize())
 
-# Output: Apple
-#         Banana
-#         Mango
+# Вывод: Apple
+#        Banana
+#        Mango
 ```
 
 Это базовая структура цикла `for`. Теперь перейдем к менее известным
