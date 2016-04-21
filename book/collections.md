@@ -36,7 +36,7 @@ for name, colour in colours:
 
 print(favourite_colours)
 
-# output
+# Вывод:
 # defaultdict(<type 'list'>,
 #    {'Arham': ['Green'],
 #     'Yasoob': ['Yellow', 'Red'],
@@ -75,7 +75,7 @@ some_dict['colours']['favourite'] = "yellow"
 ```python
 import json
 print(json.dumps(some_dict))
-# Output: {"colours": {"favourite": "yellow"}}
+# Вывод: {"colours": {"favourite": "yellow"}}
 ```
 
 ## `counter`
@@ -98,7 +98,7 @@ colours = (
 
 favs = Counter(name for name, colour in colours)
 print(favs)
-# Output: Counter({
+# Вывод: Counter({
 #    'Yasoob': 2,
 #    'Ali': 2,
 #    'Arham': 1,
@@ -140,13 +140,13 @@ d.append('2')
 d.append('3')
 
 print(len(d))
-# Output: 3
+# Вывод: 3
 
 print(d[0])
-# Output: '1'
+# Вывод: '1'
 
 print(d[-1])
-# Output: '3'
+# Вывод: '3'
 ```
 
 Мы можем отрезать элементы с обоих сторон очереди:
@@ -154,16 +154,16 @@ print(d[-1])
 ```python
 d = deque(range(5))
 print(len(d))
-# Output: 5
+# Вывод: 5
 
 d.popleft()
-# Output: 0
+# Вывод: 0
 
 d.pop()
-# Output: 4
+# Вывод: 4
 
 print(d)
-# Output: deque([1, 2, 3])
+# Вывод: deque([1, 2, 3])
 ```
 
 Мы также можем ограничить число элементов, которые может хранить очередь.
@@ -182,7 +182,7 @@ d = deque([1,2,3,4,5])
 d.extendleft([0])
 d.extend([6,7,8])
 print(d)
-# Output: deque([0, 1, 2, 3, 4, 5, 6, 7, 8])
+# Вывод: deque([0, 1, 2, 3, 4, 5, 6, 7, 8])
 ```
 
 ## `namedtuple`
@@ -196,7 +196,7 @@ print(d)
 ```python
 man = ('Ali', 30)
 print(man[0])
-# Output: Ali
+# Вывод: Ali
 ```
 
 Отлично, так что же тогда `namedtuples`? Этот модуль открывает доступ к
@@ -212,10 +212,10 @@ Animal = namedtuple('Animal', 'name age type')
 perry = Animal(name="perry", age=31, type="cat")
 
 print(perry)
-# Output: Animal(name='perry', age=31, type='cat')
+# Вывод: Animal(name='perry', age=31, type='cat')
 
 print(perry.name)
-# Output: 'perry'
+# Вывод: 'perry'
 ```
 
 Теперь вы можете видеть, что мы можем обращаться к элементам именнованого кортежа при
@@ -238,9 +238,9 @@ Animal = namedtuple('Animal', 'name age type')
 perry = Animal(name="perry", age=31, type="cat")
 perry.age = 42
 
-# Output: Traceback (most recent call last):
-#            File "", line 1, in
-#         AttributeError: can't set attribute
+# Вывод: Traceback (most recent call last):
+#           File "", line 1, in
+#        AttributeError: can't set attribute
 ```
 
 Вы должны использовать именнованые кортежи для улучшения читаемости кода.
@@ -253,7 +253,7 @@ from collections import namedtuple
 Animal = namedtuple('Animal', 'name age type')
 perry = Animal(name="perry", age=31, type="cat")
 print(perry[0])
-# Output: perry
+# Вывод: perry
 ```
 
 И последнее, вы можете сконвертировать именнованый аргумент в словарь. Вот так:
@@ -264,7 +264,7 @@ from collections import namedtuple
 Animal = namedtuple('Animal', 'name age type')
 perry = Animal(name="Perry", age=31, type="cat")
 print(perry._asdict())
-# Output: OrderedDict([('name', 'Perry'), ('age', 31), ...
+# Вывод: OrderedDict([('name', 'Perry'), ('age', 31), ...
 ```
 
 ## `enum.Enum` (Python 3.4+)
