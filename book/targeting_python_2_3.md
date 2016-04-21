@@ -1,5 +1,4 @@
-Разработка под Python 2+3
--------------------------
+# Разработка под Python 2+3
 
 Во многих случаях вам может понадобиться писать программы, которые будут
 корректно работать и на Python 2+ и на 3+.
@@ -13,101 +12,101 @@
 В данном разделе я собираюсь рассказать о нескольких приемах, которые вы
 можете использовать, чтобы сделать скрипт совместимым с обоими ветками Python.
 
-**Импорты Future**
+## Импорты Future
 
-Первым и наиболее важным методом будет использование импорта ``__future__``.
+Первым и наиболее важным методом будет использование импорта `__future__`.
 Это позволяет вам импортировать функционал Python 3 в Python 2. Ниже несколько
 примеров.
 
 Менеджеры контекста были нововведением в Python 2.6+. Для их использования в
 Python 2.5 вам необходимо:
 
-.. code:: python
+```python
+from __future__ import with_statement
+```
 
-    from __future__ import with_statement
+`print` стал функцией в Python 3. Для её использования в Python 2 вы можете
+импортировать функцию из `__future__`:
 
-``print`` стал функцией в Python 3. Для её использования в Python 2 вы можете
-импортировать функцию из ``__future__``:
+```python
+print
+# Output:
 
-.. code:: python
+from __future__ import print_function
+print(print)
+# Output: <built-in function print>
+```
 
-    print
-    # Output:
-
-    from __future__ import print_function
-    print(print)
-    # Output: <built-in function print>
-
-**Переименование модулей**
+## Переименование модулей
 
 Для начала, скажите мне как вы импортируете модули в ваших скриптах?
 Большинство делает так:
 
-.. code:: python
-
-    import foo
-    # или
-    from foo import bar
+```python
+import foo
+# или
+from foo import bar
+```
 
 А знаете ли вы про такой способ:
 
-.. code:: python
-
-    import foo as foo
+```python
+import foo as foo
+```
 
 Я знаю что эффект будет такой же, как и в первом случае, но этот способ критичен
 для совместимости программ с Python 2 и 3. Попробуем следующий код:
 
-.. code:: python
+```python
+try:
+    import urllib.request as urllib_request  # for Python 3
+except ImportError:
+    import urllib2 as urllib_request  # for Python 2
+```
 
-    try:
-        import urllib.request as urllib_request  # for Python 3
-    except ImportError:
-        import urllib2 as urllib_request  # for Python 2
+Позвольте мне немного пояснить. Мы используем блок `try/except` для импорта.
+Причина - в Python 2 нет модуля `urllib.request`, поэтому попытка его
+импорта приведет к `ImportError`. Функциональность `urllib.request`
+доступна в модуле `urlib2` в Python 2. Таким образом, при использовании
+Python 2, при импорте `urllib.request` мы упираемся в Exception и импортируем
+`urllib2` в качестве альтернативы.
 
-Позвольте мне немного пояснить. Мы используем блок ``try/except`` для импорта.
-Причина - в Python 2 нет модуля ``urllib.request``, поэтому попытка его
-импорта приведет к ``ImportError``. Функциональность ``urllib.request``
-доступна в модуле ``urlib2`` в Python 2. Таким образом, при использовании
-Python 2, при импорте ``urllib.request`` мы упираемся в Exception и импортируем
-``urllib2`` в качестве альтернативы.
-
-Последнее что вам нужно знать - ключевое слово ``as``. С его помощью мы
-импортируем модуль под именем ``urllib_request``. Дальше в коде мы просто
+Последнее что вам нужно знать - ключевое слово `as`. С его помощью мы
+импортируем модуль под именем `urllib_request`. Дальше в коде мы просто
 будем ссылаться на это имя, вне зависимости от того, какую ветку Python мы
 используем.
 
-**Заменяем устаревшие модули Python 2**
+## Заменяем устаревшие модули Python 2
 
 В Python 2 есть 12 устаревших модулей, которые были удалены в Python 3.
 Для сохранения совместимости убедитесь, что не используете их в своем коде.
 Следующим образом можно явно запретить использование удаленного в Python 3
 функционала:
 
-.. code:: python
-
-    from future.builtins.disabled import *
+```python
+from future.builtins.disabled import *
+```
 
 Теперь, при использовании удаленного в Python 3 модуля, мы будем получать
-``NameError``:
+`NameError`:
 
-.. code:: python
+```python
+from future.builtins.disabled import *
 
-    from future.builtins.disabled import *
+apply()
+# Output: NameError: obsolete Python 2 builtin apply is disabled
+```
 
-    apply()
-    # Output: NameError: obsolete Python 2 builtin apply is disabled
-
-**Сторонние бэкпорты**
+## Сторонние бэкпорты
 
 Существует несколько пакетов, которые предоставляют новый функционал Python 3
 в Python 2. Например:
 
--  enum ``pip install enum34``
--  singledispatch ``pip install singledispatch``
--  pathlib ``pip install pathlib``
+-  enum `pip install enum34`
+-  singledispatch `pip install singledispatch`
+-  pathlib `pip install pathlib`
 
 В качестве дополнительного чтения: официальная документация содержит
-`исчерпывающее руководство <https://docs.python.org/3/howto/pyporting.html>`_,
+[исчерпывающее руководство](https://docs.python.org/3/howto/pyporting.html),
 объясняющее шаги, которые вам нужно предпринять для гарантии совместимости кода
 с обеими ветками Python.

@@ -1,101 +1,98 @@
-Map, Filter и Reduce
---------------------
+# Map, Filter и Reduce
 
 В Python есть три функции, которые значительно упрощают фукнциональный подход
 к программированию. Мы обсудим их и рассмотрим примеры использования.
 
-Map
-^^^
+## Map
 
 ``map`` применяет функцию ко всем элементам списка. Если коротко:
 
-**Сценарий использования**
+### Сценарий использования
 
-.. code:: python
-
-    map(function_to_apply, list_of_inputs)
+```python
+map(function_to_apply, list_of_inputs)
+```
 
 Нам часто необходимо передать все эелементы списка в функцию один за другим и
 собрать возвращаемые значения в новый список. К примеру:
 
-.. code:: python
+```python
+items = [1, 2, 3, 4, 5]
+squared = []
+for i in items:
+    squared.append(i**2)
+```
 
-    items = [1, 2, 3, 4, 5]
-    squared = []
-    for i in items:
-        squared.append(i**2)
+`map` позволяет выполнить эту задачу элегантным способом:
 
-``map`` позволяет выполнить эту задачу элегантным способом:
+```python
+items = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, items))
+```
 
-.. code:: python
-
-    items = [1, 2, 3, 4, 5]
-    squared = list(map(lambda x: x**2, items))
-
-Зачастую с ``map`` используются анонимные функции, как в примере выше. Вместо
+Зачастую с `map` используются анонимные функции, как в примере выше. Вместо
 списка входных данных можно также использовать список функций!
 
-.. code:: python
+```python
+def multiply(x):
+    return (x*x)
+def add(x):
+    return (x+x)
 
-    def multiply(x):
-        return (x*x)
-    def add(x):
-        return (x+x)
+funcs = [multiply, add]
+for i in range(5):
+    value = list(map(lambda x: x(i), funcs))
+    print(value)
 
-    funcs = [multiply, add]
-    for i in range(5):
-        value = list(map(lambda x: x(i), funcs))
-        print(value)
+# Output:
+# [0, 0]
+# [1, 2]
+# [4, 4]
+# [9, 6]
+# [16, 8]
+```
 
-    # Output:
-    # [0, 0]
-    # [1, 2]
-    # [4, 4]
-    # [9, 6]
-    # [16, 8]
+## Filter
 
-Filter
-^^^^^^
+Как можно догадаться по имени, `filter` возвращает список элементов, для
+которых заданная функция возвращает `True`. Вот простой и понятный пример:
 
-Как можно догадаться по имени, ``filter`` возвращает список элементов, для
-которых заданная функция возвращает ``True``. Вот простой и понятный пример:
+```python
+number_list = range(-5, 5)
+less_than_zero = list(filter(lambda x: x < 0, number_list))
+print(less_than_zero)
 
-.. code:: python
+# Output: [-5, -4, -3, -2, -1]
+```
 
-    number_list = range(-5, 5)
-    less_than_zero = list(filter(lambda x: x < 0, number_list))
-    print(less_than_zero)
-
-    # Output: [-5, -4, -3, -2, -1]
-
-``filer`` уподобляется циклу, но он является встроенной функцией и работает
+`filer` уподобляется циклу, но он является встроенной функцией и работает
 быстрее.
 
-**Примечание:** Если ``map`` и ``filter`` не кажутся вам достаточно красивым
+**Примечание:** Если `map` и `filter` не кажутся вам достаточно красивым
 решением, то вы всегда можете использовать абстракции списков/словарей/кортежей.
 
-Reduce
-^^^^^^
+## Reduce
 
-``Reduce`` весьма полезная функция для выполнения вычислений на списке и
+`Reduce` весьма полезная функция для выполнения вычислений на списке и
 возвращаения единственного результата. Например, если мы хотим посчитать
 произведение всех элементов списка чисел.
 
-Обычным решением этой задачи будет использования цикла ``for``:
+Обычным решением этой задачи будет использования цикла `for`:
 
-.. code:: python
-    product = 1
-    list = [1, 2, 3, 4]
-    for num in list:
-        product = product * num
+```python
+product = 1
+list = [1, 2, 3, 4]
+for num in list:
+    product = product * num
 
-    # product = 24
+# product = 24
+```
 
-Теперь попробуем с ``reduce``:
+Теперь попробуем с `reduce`:
 
-.. code:: python
+```python
+from functools import reduce
+product = reduce( (lambda x, y: x * y), [1, 2, 3, 4] )
 
-    from functools import reduce
-    product = reduce( (lambda x, y: x * y), [1, 2, 3, 4] )
-
-    # Output: 24
+# Output: 24
+```

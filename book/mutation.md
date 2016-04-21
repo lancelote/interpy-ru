@@ -1,38 +1,37 @@
-Изменяемость
-------------
+# Изменяемость
 
 Изменяемые и неизменяемые типы данных в Python традиционно являются причиной
 головной боли у начинающих разработчиков. Как следует из названия изменяемые
 объекты 'можно модифицировать', неизменяемые - 'постоянны'. Заставим голову
 кружиться? Смотрим пример:
 
-.. code:: python
+```python
+foo = ['hi']
+print(foo)
+# Output: ['hi']
 
-    foo = ['hi']
-    print(foo)
-    # Output: ['hi']
-
-    bar = foo
-    bar += ['bye']
-    print(foo)
-    # Output: ['hi', 'bye']
+bar = foo
+bar += ['bye']
+print(foo)
+# Output: ['hi', 'bye']
+```
 
 Что произошло? Мы этого не ожидали! Логично было бы увидеть:
 
-.. code:: python
+```python
+foo = ['hi']
+print(foo)
+# Output: ['hi']
 
-    foo = ['hi']
-    print(foo)
-    # Output: ['hi']
+bar = foo
+bar += ['bye']
 
-    bar = foo
-    bar += ['bye']
+print(foo)
+# Output: ['hi']
 
-    print(foo)
-    # Output: ['hi']
-
-    print(bar)
-    # Output: ['hi', 'bye']
+print(bar)
+# Output: ['hi', 'bye']
+```
 
 Это не баг, а изменяемые типы данных в действии. Каждый раз, когды вы
 присваиваете значение переменной изменяемого типа другой переменной, все
@@ -40,38 +39,38 @@
 переменная становится ссылкой на старую. Так происходит только с изменяемыми
 типами данных. Вот пример с использованием функций и изменяемых типов данных:
 
-.. code:: python
+```python
+def add_to(num, target=[]):
+    target.append(num)
+    return target
 
-    def add_to(num, target=[]):
-        target.append(num)
-        return target
+add_to(1)
+# Output: [1]
 
-    add_to(1)
-    # Output: [1]
+add_to(2)
+# Output: [1, 2]
 
-    add_to(2)
-    # Output: [1, 2]
+add_to(3)
+# Output: [1, 2, 3]
+```
 
-    add_to(3)
-    # Output: [1, 2, 3]
-
-Вы могли ожидать другого поведения. Например, что функция ``add_to`` будет
+Вы могли ожидать другого поведения. Например, что функция `add_to` будет
 возвращать новый список при каждом вызове:
 
-.. code:: python
+```python
+def add_to(num, target=[]):
+    target.append(num)
+    return target
 
-    def add_to(num, target=[]):
-        target.append(num)
-        return target
+add_to(1)
+# Output: [1]
 
-    add_to(1)
-    # Output: [1]
+add_to(2)
+# Output: [2]
 
-    add_to(2)
-    # Output: [2]
-
-    add_to(3)
-    # Output: [3]
+add_to(3)
+# Output: [3]
+```
 
 Причиной, опять же, является изменяемость списков, которая и вызывает основную
 боль. В Python аргументы функции обрабатываются при определении функции, а не
@@ -79,24 +78,24 @@
 умолчанию значения изменяемых типов, если абсолютно точно не уверены в своих
 действиях конечно. Правильным подходом будет такой код:
 
-.. code:: python
+```python
+def add_to(element, target=None):
+    if target is None:
+        target = []
+    target.append(element)
+    return target
+```
 
-    def add_to(element, target=None):
-        if target is None:
-            target = []
-        target.append(element)
-        return target
-
-Каждый раз при вызове функции без аргумента ``target`` будет создан новый
+Каждый раз при вызове функции без аргумента `target` будет создан новый
 список. К примеру:
 
-.. code:: python
+```python
+add_to(42)
+# Output: [42]
 
-    add_to(42)
-    # Output: [42]
+add_to(42)
+# Output: [42]
 
-    add_to(42)
-    # Output: [42]
-
-    add_to(42)
-    # Output: [42]
+add_to(42)
+# Output: [42]
+```

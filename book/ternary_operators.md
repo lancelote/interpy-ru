@@ -1,5 +1,4 @@
-Тернарные операторы
--------------------
+# Тернарные операторы
 
 Тернарные оператры наиболее широко известын в Python как условные выражения.
 Эти операторы возвращают что-то в зависимости от того, является ли условие
@@ -9,16 +8,16 @@
 
 **Шаблон:**
 
-.. code:: python
-
-    condition_is_true if condition else condition_is_false
+```python
+condition_is_true if condition else condition_is_false
+```
 
 **Пример:**
 
-.. code:: python
-
-    is_fat = True
-    state = "fat" if is_fat else "not fat"
+```python
+is_fat = True
+state = "fat" if is_fat else "not fat"
+```
 
 Такой подход позволяет быстро проверить условие, а не писать несколько строчек
 оператора `if`. Зачастую это очень удобно, поскольку позволяет писать более
@@ -29,20 +28,20 @@
 
 **Шаблон:**
 
-.. code:: python
-
-    (if_test_is_false, if_test_is_true)[test]
+```python
+(if_test_is_false, if_test_is_true)[test]
+```
 
 **Пример:**
 
-.. code:: python
+```python
+fat = True
+fitness = ("skinny", "fat")[fat]
+print("Ali is ", fitness)
+# Output: Ali is fat
+```
 
-    fat = True
-    fitness = ("skinny", "fat")[fat]
-    print("Ali is ", fitness)
-    # Output: Ali is fat
-
-Это работает поскольку в Python ``True == 1`` и ``False == 0``. Помимо кортежей
+Это работает поскольку в Python `True == 1` и `False == 0`. Помимо кортежей
 можно использовать списки.
 
 Пример выше редко используется и в основном считается плохой практикой у
@@ -55,17 +54,17 @@
 
 **Пример:**
 
-.. code:: python
+```python
+condition = True
+print(2 if condition else 1/0)
+#Output is 2
 
-    condition = True
-    print(2 if condition else 1/0)
-    #Output is 2
-
-    print((1/0, 2)[condition])
-    #ZeroDivisionError is raised
+print((1/0, 2)[condition])
+#ZeroDivisionError is raised
+```
 
 Во втором примере сначала собирается кортеж, а затем находится элемент под
 заданным индексом. Тернарный оператор на if-else следует обычной логике
-условного оператора ``if``. Таким образом, если один из случаев может вернуть
+условного оператора `if`. Таким образом, если один из случаев может вернуть
 ошибку или обработка обоих случаев является слишком затратной операцией, то
 вариант с кортежами точно не стоит использовать.
