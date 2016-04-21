@@ -1,7 +1,7 @@
 # Содержание
 
 * [Введение](README.md)
-* [\*args и \*\*kwargs](book/args_and_kwargs.md)
+* [*args и **kwargs](book/args_and_kwargs.md)
 * [Отладка](book/debugging.md)
 * [Генераторы](book/generators.md)
 * [map и filter](book/map_filter.md)
@@ -10,7 +10,7 @@
 * [Декораторы](book/decorators.md)
 * [global и return](book/global_&_return.md)
 * [Изменяемость](book/mutation.md)
-* [Магия \_\_slots\_\_](book/__slots__magic.md)
+* [Магия __slots__](book/__slots__magic.md)
 * [Виртуальное окружение](book/virtual_environment.md)
 * [collections](book/collections.md)
 * [enumerate](book/enumerate.md)
