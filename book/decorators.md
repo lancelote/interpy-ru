@@ -17,10 +17,10 @@
 
 ```python
 def hi(name="yasoob"):
-    return "hi " + name
+    return "Привет " + name
 
 print(hi())
-# output: 'hi yasoob'
+# Вывод: 'Привет yasoob'
 
 # Мы можем присвоить функцию переменной:
 greet = hi
@@ -28,15 +28,15 @@ greet = hi
 # а передать её объект переменной. Теперь попробуем запустить
 
 print(greet())
-# output: 'hi yasoob'
+# Вывод: 'Привет yasoob'
 
 # Давайте посмотрим что произойдет, если мы удалим оригинальную функцию
 del hi
 print(hi())
-# outputs: NameError
+# Вывод: NameError
 
 print(greet())
-# outputs: 'hi yasoob'
+# Вывод: 'Привет yasoob'
 ```
 
 ## Определение функций внутри функций
@@ -46,30 +46,30 @@ print(greet())
 
 ```python
 def hi(name="yasoob"):
-    print("now you are inside the hi() function")
+    print("Вы внутри функции hi()")
 
     def greet():
-        return "now you are in the greet() function"
+        return "Вы внутри функции greet()"
 
     def welcome():
-        return "now you are in the welcome() function"
+        return "Вы внутри функции welcome()"
 
     print(greet())
     print(welcome())
-    print("now you are back in the hi() function")
+    print("Вы внутри функции hi()")
 
 hi()
-# output: now you are inside the hi() function
-#         now you are in the greet() function
-#         now you are in the welcome() function
-#         now you are back in the hi() function
+# Вывод: Вы внутри функции hi()
+#        Вы внутри функции greet()
+#        Вы внутри функции welcome()
+#        Вы внутри функции hi()
 
 # Пример демонстрирует, что при вызове hi() вызываются также функции
 # greet() и welcome(). Кроме того, две последние функции недоступны
 # извне hi():
 
 greet()
-# outputs: NameError: name 'greet' is not defined
+# Вывод: NameError: name 'greet' is not defined
 ```
 
 Теперь мы знаем, что возможно определять функции внутри других функций. Другими
@@ -78,16 +78,16 @@ greet()
 
 ## Возвращение функции из функции
 
-Нам не обязательно исполнять функцию, определенную внутри другой функции, сразу,
+Нам не обязательно исполнять функцию, определенную внутри другой функции сразу,
 мы можем вернуть её в качестве возвращаемого значения:
 
 ```python
 def hi(name="yasoob"):
     def greet():
-        return "now you are in the greet() function"
+        return "Вы внутри функции greet()"
 
     def welcome():
-        return "now you are in the welcome() function"
+        return "Вы внутри функции welcome()"
 
     if name == "yasoob":
         return greet
@@ -96,13 +96,13 @@ def hi(name="yasoob"):
 
 a = hi()
 print(a)
-# outputs: <function greet at 0x7f2143c01500>
+# Вывод: <function greet at 0x7f2143c01500>
 
 # Это наглядно демонстрирует, что переменная `a` теперь указывает на
 # функцию greet() в функции hi().Теперь попробуйте вот это
 
 print(a())
-# outputs: now you are in the greet() function
+# Вывод: Вы внутри функции greet()
 ```
 
 Давайте еще раз пробежимся по коду. Через условный оператор мы возвращаем из
@@ -112,21 +112,21 @@ print(a())
 этом. Когда мы пишем `a = hi()`, функция `hi()` иполняется и (поскольку
 имя по умолчанию yasoob) возвращается функция ``greet``. Если мы изменим код
 на `a = hi(name="ali")`, то будет возвращена функция `welcome`. Мы также
-можем набрать `hi()()`, что вернет *now you are in the `greet()` function*.
+можем набрать `hi()()`, что вернет `Вы внутри функции greet()`.
 
 Передаем функцию в качестве аргумента другой функции
 
 ```python
 def hi():
-    return "hi yasoob!"
+    return "Привет yasoob!"
 
 def doSomethingBeforeHi(func):
-    print("I am doing some boring work before executing hi()")
+    print("Я делаю что-то скучное перед исполнением hi()")
     print(func())
 
 doSomethingBeforeHi(hi)
-# outputs:I am doing some boring work before executing hi()
-#         hi yasoob!
+# Вывод: Я делаю что-то скучное перед исполнением hi()
+#        Привет yasoob!
 ```
 
 Теперь у нас есть все необходимые знания для изучения работы декораторов.
@@ -142,27 +142,27 @@ doSomethingBeforeHi(hi)
 def a_new_decorator(a_func):
 
     def wrapTheFunction():
-        print("I am doing some boring work before executing a_func()")
+        print("Я делаю что-то скучное перед исполнением a_func()")
 
         a_func()
 
-        print("I am doing some boring work after executing a_func()")
+        print("Я делаю что-то скучное после исполнения a_func()")
 
     return wrapTheFunction
 
 def a_function_requiring_decoration():
-    print("I am the function which needs some decoration to remove my foul smell")
+    print("Я функция, которая требует декорации")
 
 a_function_requiring_decoration()
-# outputs: "I am the function which needs some decoration to remove my foul smell"
+# Вывод: "Я функция, которая требует декорации"
 
 a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration)
 # Теперь функция a_function_requiring_decoration обернута в wrapTheFunction()
 
 a_function_requiring_decoration()
-# outputs: I am doing some boring work before executing a_function_requiring_decoration()
-#          I am the function which needs some decoration to remove my foul smell
-#          I am doing some boring work after executing a_function_requiring_decoration()
+# Вывод: Я делаю что-то скучное перед исполнением a_func()
+#        Я функция, которая требует декорации
+#        Я делаю что-то скучное после исполнения a_func()
 ```
 
 Все ясно? Мы просто использовали принципы, с которыми познакомились выше.
@@ -175,14 +175,13 @@ a_function_requiring_decoration()
 ```python
 @a_new_decorator
 def a_function_requiring_decoration():
-    """Hey you! Decorate me!"""
-    print("I am the function which needs some decoration to "
-          "remove my foul smell")
+    """Эй ты! Задекорируй меня полностью!"""
+    print("Я функция, которая требует декорации")
 
 a_function_requiring_decoration()
-# outputs: I am doing some boring work before executing a_func()
-#          I am the function which needs some decoration to remove my foul smell
-#          I am doing some boring work after executing a_func()
+# Вывод: Я делаю что-то скучное перед исполнением a_func()
+#        Я функция, которая требует декорации
+#        Я делаю что-то скучное после исполнения a_func()
 
 # Выражение @a_new_decorator это сокращенная версия следующего кода:
 a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration)
@@ -193,7 +192,7 @@ a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoratio
 
 ```python
 print(a_function_requiring_decoration.__name__)
-# Output: wrapTheFunction
+# Вывод: wrapTheFunction
 ```
 
 Мы этого не ожидали! Имя функции должно быть
@@ -209,19 +208,18 @@ from functools import wraps
 def a_new_decorator(a_func):
     @wraps(a_func)
     def wrapTheFunction():
-        print("I am doing some boring work before executing a_func()")
+        print("Я делаю что-то скучное перед исполнением a_func()")
         a_func()
-        print("I am doing some boring work after executing a_func()")
+        print("Я делаю что-то скучное после исполнения a_func()")
     return wrapTheFunction
 
 @a_new_decorator
 def a_function_requiring_decoration():
-    """Hey yo! Decorate me!"""
-    print("I am the function which needs some decoration to "
-          "remove my foul smell")
+    """Эй ты! Задекорируй меня полностью!"""
+    print("Я функция, которая требует декорации")
 
 print(a_function_requiring_decoration.__name__)
-# Output: a_function_requiring_decoration
+# Вывод: a_function_requiring_decoration
 ```
 
 Так намного лучше. Давайте двигаться дальше и знакомиться с конкретными
@@ -235,21 +233,21 @@ def decorator_name(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         if not can_run:
-            return "Function will not run"
+            return "Функция не будет исполнена"
         return f(*args, **kwargs)
     return decorated
 
 @decorator_name
 def func():
-    return("Function is running")
+    return("Функция исполняется")
 
 can_run = True
 print(func())
-# Output: Function is running
+# Вывод: Функция исполняется
 
 can_run = False
 print(func())
-# Output: Function will not run
+# Вывод: Функция не будет исполнена
 ```
 
 Примечание: `@wraps` принимает на вход функцию для декорирования и
@@ -295,18 +293,18 @@ from functools import wraps
 def logit(func):
     @wraps(func)
     def with_logging(*args, **kwargs):
-        print(func.__name__ + " was called")
+        print(func.__name__ + " была исполнена")
         return func(*args, **kwargs)
     return with_logging
 
 @logit
 def addition_func(x):
-    """Do some math."""
+    """Считаем что-нибудь"""
     return x + x
 
 
 result = addition_func(4)
-# Output: addition_func was called
+# Вывод: addition_func была исполнена
 ```
 
 Уверен, вы уже думаете о каком-нибудь хитром использовании декораторов.
@@ -334,7 +332,7 @@ def logit(logfile='out.log'):
     def logging_decorator(func):
         @wraps(func)
         def wrapped_function(*args, **kwargs):
-            log_string = func.__name__ + " was called"
+            log_string = func.__name__ + " была исполнена"
             print(log_string)
             # Открываем логфайл и записваем данные
             with open(logfile, 'a') as opened_file:
@@ -348,7 +346,7 @@ def myfunc1():
     pass
 
 myfunc1()
-# Output: myfunc1 was called
+# Вывод: myfunc1 была исполнена
 # Файл out.log создан и содержит строку выше
 
 @logit(logfile='func2.log')
@@ -356,7 +354,7 @@ def myfunc2():
     pass
 
 myfunc2()
-# Output: myfunc2 was called
+# Вывод: myfunc2 была исполнена
 # Файл func2.log создан и содержит строку выше
 ```
 
@@ -379,7 +377,7 @@ class logit(object):
         self.logfile = logfile
 
     def __call__(self, func):
-        log_string = func.__name__ + " was called"
+        log_string = func.__name__ + " была исполнена"
         print(log_string)
         # Открываем логфайл и записваем данные
         with open(self.logfile, 'a') as opened_file:
