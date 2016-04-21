@@ -8,12 +8,12 @@
 ```python
 foo = ['hi']
 print(foo)
-# Output: ['hi']
+# Вывод: ['hi']
 
 bar = foo
 bar += ['bye']
 print(foo)
-# Output: ['hi', 'bye']
+# Вывод: ['hi', 'bye']
 ```
 
 Что произошло? Мы этого не ожидали! Логично было бы увидеть:
@@ -21,16 +21,16 @@ print(foo)
 ```python
 foo = ['hi']
 print(foo)
-# Output: ['hi']
+# Вывод: ['hi']
 
 bar = foo
 bar += ['bye']
 
 print(foo)
-# Output: ['hi']
+# Вывод: ['hi']
 
 print(bar)
-# Output: ['hi', 'bye']
+# Вывод: ['hi', 'bye']
 ```
 
 Это не баг, а изменяемые типы данных в действии. Каждый раз, когды вы
@@ -45,13 +45,13 @@ def add_to(num, target=[]):
     return target
 
 add_to(1)
-# Output: [1]
+# Вывод: [1]
 
 add_to(2)
-# Output: [1, 2]
+# Вывод: [1, 2]
 
 add_to(3)
-# Output: [1, 2, 3]
+# Вывод: [1, 2, 3]
 ```
 
 Вы могли ожидать другого поведения. Например, что функция `add_to` будет
@@ -63,13 +63,13 @@ def add_to(num, target=[]):
     return target
 
 add_to(1)
-# Output: [1]
+# Вывод: [1]
 
 add_to(2)
-# Output: [2]
+# Вывод: [2]
 
 add_to(3)
-# Output: [3]
+# Вывод: [3]
 ```
 
 Причиной, опять же, является изменяемость списков, которая и вызывает основную
@@ -91,11 +91,11 @@ def add_to(element, target=None):
 
 ```python
 add_to(42)
-# Output: [42]
+# Вывод: [42]
 
 add_to(42)
-# Output: [42]
+# Вывод: [42]
 
 add_to(42)
-# Output: [42]
+# Вывод: [42]
 ```
