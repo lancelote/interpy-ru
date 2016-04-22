@@ -36,7 +36,7 @@ state = "fat" if is_fat else "not fat"
 
 ```python
 fat = True
-fitness = ("худой", "толтый")[fat]
+fitness = ("худой", "толстый")[fat]
 print("Али ", fitness)
 # Вывод: Али толстый
 ```
@@ -57,7 +57,7 @@ print("Али ", fitness)
 ```python
 condition = True
 print(2 if condition else 1/0)
-# ВыводЖ 2
+# Вывод: 2
 
 print((1/0, 2)[condition])
 # Было вызвано исключение ZeroDivisionError

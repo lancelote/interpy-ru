@@ -44,7 +44,7 @@ class MyClass(object):
 по умолчанию.
 
 Ниже я привожу пример замера потребления оперативное памяти с и без
-использования `__slots__`, выполненого в IPython, спасибо
+использования `__slots__`, выполненного в IPython, спасибо
 https://github.com/ianozsvald/ipython_memory_usage
 
 ```python
