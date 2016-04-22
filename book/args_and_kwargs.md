@@ -20,7 +20,7 @@
 
 ```python
 def test_var_args(f_arg, *argv):
-    print("Первый позиционная аргумент:", f_arg)
+    print("Первый позиционный аргумент:", f_arg)
     for arg in argv:
         print("Другой аргумент из *argv:", arg)
 
