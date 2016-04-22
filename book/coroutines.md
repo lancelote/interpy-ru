@@ -47,11 +47,11 @@ def grep(pattern):
 ```python
 search = grep('coroutine')
 next(search)
-# Output: Searching for coroutine
+# Вывод: Searching for coroutine
 search.send("I love you")
 search.send("Don't you love me?")
 search.send("I love coroutines instead!")
-# Output: I love coroutines instead!
+# Вывод: I love coroutines instead!
 ```
 
 Передаваемые значения используюся в `yield`. Почему мы вызвали `next()`?
