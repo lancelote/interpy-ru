@@ -63,6 +63,12 @@ Python - это невероятный язык с опытным и друже�
 - [Кэширование функций](book/function_caching.md)
 - [Менеджеры контекста](book/context_managers.md)
 
+## Скачать / читать книгу
+
+ - [Онлайн версия на gitbook][1]
+ - [Скачать с gitbook (pdf, mobi, epub)][3]
+ - [Скачать с github (pdf, mobi, epub)][2]
+
 ## Автор
 
 - [Muhammad Yasoob Ullah Khalid](https://github.com/yasoob)
@@ -89,3 +95,7 @@ Python - это невероятный язык с опытным и друже�
 [Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/) (CC BY-NC-SA 4.0).
 
 Если вы используете сами или рекомендуете эту книгу кому-нибудь еще - [расскажите об этом автору](mailto:yasoob.khld@gmail.com).
+
+ [1]: https://lancelote.gitbooks.io/intermediate-python/content/
+ [2]: https://github.com/lancelote/interpy-ru/releases/tag/v1.0.0
+ [3]: https://www.gitbook.com/book/lancelote/intermediate-python/details
