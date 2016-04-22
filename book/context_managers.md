@@ -114,14 +114,14 @@ class File(object):
     def __enter__(self):
         return self.file_obj
     def __exit__(self, type, value, traceback):
-        print("Exception has been handled")
+        print("Исключение было обработано")
         self.file_obj.close()
         return True
 
 with File('demo.txt', 'w') as opened_file:
     opened_file.undefined_function()
 
-# Output: Exception has been handled
+# Вывод: Исключение было обработано
 ```
 
 Наш метод `__exit__` возвращает `True`, таким образом `with` не вызывает
