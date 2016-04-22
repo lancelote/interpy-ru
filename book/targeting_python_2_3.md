@@ -30,11 +30,11 @@ from __future__ import with_statement
 
 ```python
 print
-# Output:
+# Вывод:
 
 from __future__ import print_function
 print(print)
-# Output: <built-in function print>
+# Вывод: <built-in function print>
 ```
 
 ## Переименование модулей
@@ -59,9 +59,9 @@ import foo as foo
 
 ```python
 try:
-    import urllib.request as urllib_request  # for Python 3
+    import urllib.request as urllib_request  # для Python 3
 except ImportError:
-    import urllib2 as urllib_request  # for Python 2
+    import urllib2 as urllib_request  # для Python 2
 ```
 
 Позвольте мне немного пояснить. Мы используем блок `try/except` для импорта.
@@ -94,7 +94,7 @@ from future.builtins.disabled import *
 from future.builtins.disabled import *
 
 apply()
-# Output: NameError: obsolete Python 2 builtin apply is disabled
+# Вывод: NameError: obsolete Python 2 builtin apply is disabled
 ```
 
 ## Сторонние бэкпорты
