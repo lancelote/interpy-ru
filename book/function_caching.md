@@ -6,7 +6,7 @@
 написать собственную реализацию. В Python 3.2+ появился декоратор `lpu_cache`,
 который позволяет быстро кэшировать возвращаемые функцией значения.
 
-Давайте посмотрим как мы можем воспользоваться кэшированием в Python 3.2+ и
+Давайте посмотрим, как мы можем воспользоваться кэшированием в Python 3.2+ и
 в более старых версиях.
 
 ## Python 3.2+
@@ -64,6 +64,7 @@ def fibonacci(n):
 fibonacci(25)
 ```
 
-[Отличная статья](https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/)
+[Отлична
+я статья](https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/)
 от Caktus Group, в которой они рассказывают историю бага в Django, который
 появился из-за `lru_cache`. Рекомендую к ознакомлению.
