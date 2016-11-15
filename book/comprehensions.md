@@ -31,7 +31,7 @@ variable = [out_exp for out_exp in input_list if out_exp == 2]
 Вот короткий пример:
 
 ```python
-multiples = [i for i in range(30) if i % 3 is 0]
+multiples = [i for i in range(30) if i % 3 == 0]
 print(multiples)
 # Вывод: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
 ```

@@ -92,7 +92,7 @@ for num in list:
 
 ```python
 from functools import reduce
-product = reduce( (lambda x, y: x * y), [1, 2, 3, 4] )
+product = reduce((lambda x, y: x * y), [1, 2, 3, 4])
 
 # Вывод: 24
 ```

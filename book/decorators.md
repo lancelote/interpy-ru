@@ -412,7 +412,7 @@ class email_logit(logit):
     """
     def __init__(self, email='admin@myproject.com', *args, **kwargs):
         self.email = email
-        super(logit, self).__init__(*args, **kwargs)
+        super(email_logit, self).__init__(*args, **kwargs)
 
     def notify(self):
         # Отправляем письмо в self.email

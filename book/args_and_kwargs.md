@@ -48,10 +48,10 @@ test_var_args('yasoob', 'python', 'eggs', 'test')
 ```python
 def greet_me(**kwargs):
     for key, value in kwargs.items():
-        print("{0} == {1}".format(key, value))
+        print("{0} = {1}".format(key, value))
 
 >>> greet_me(name="yasoob")
-name == yasoob
+name = yasoob
 ```
 
 В результате, мы оперируем произвольным числом именованных аргументов в нашей
