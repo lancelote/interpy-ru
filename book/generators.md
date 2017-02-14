@@ -159,7 +159,7 @@ iter(int_var)
 
 my_string = "Yasoob"
 my_iter = iter(my_string)
-next(my_iter)
+print(next(my_iter))
 # Вывод: 'Y'
 ```
 
