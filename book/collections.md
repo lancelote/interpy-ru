@@ -6,6 +6,7 @@
 А конкретно:
 
 - `defaultdict`
+- `OrderedDict`
 - `counter`
 - `deque`
 - `namedtuple`
@@ -76,6 +77,42 @@ some_dict['colours']['favourite'] = "yellow"
 import json
 print(json.dumps(some_dict))
 # Вывод: {"colours": {"favourite": "yellow"}}
+```
+
+## `OrderedDict`
+
+`OrderedDict` сохраняет элементы в порядке добавление в словарь. Иизменение
+значения ключа не изменяет его позиции. При этом удаление и повторное
+добавление перенесет ключ в конец словаря.
+
+**Проблема:**
+
+```python
+colours = {"Red": 198, "Green": 170, "Blue": 160}
+for key, value in colours.items():
+    print(key, value)
+# Вывод:
+#   Red 198
+#   Blue 160
+#   Green 170
+#
+# Элементы выводятся в произвольном порядке
+```
+
+**Решение:**
+
+```python
+from collections import OrderedDict
+
+colours = OrderedDict([("Red", 198), ("Green": 170), ("Blue": 160)])
+for key, value in colours.items():
+    print(key, value)
+# Вывод:
+#   Red 198
+#   Green 170
+#   Blue 160
+#
+# Порядок элементов сохранен
 ```
 
 ## `counter`
