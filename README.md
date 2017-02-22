@@ -109,5 +109,5 @@ Python - это невероятный язык с опытным и друже�
 Если вы используете сами или рекомендуете эту книгу кому-нибудь еще - [расскажите об этом автору](mailto:yasoob.khld@gmail.com).
 
  [1]: https://lancelote.gitbooks.io/intermediate-python/content/
- [2]: https://github.com/lancelote/interpy-ru/releases/tag/v1.0.0
+ [2]: https://github.com/lancelote/interpy-ru/releases/tag/v1.1.0
  [3]: https://www.gitbook.com/book/lancelote/intermediate-python/details
