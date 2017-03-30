@@ -64,7 +64,6 @@ def fibonacci(n):
 fibonacci(25)
 ```
 
-[Отлична
-я статья](https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/)
+[Отличная статья](https://www.caktusgroup.com/blog/2015/06/08/testing-client-side-applications-django-post-mortem/)
 от Caktus Group, в которой они рассказывают историю бага в Django, который
 появился из-за `lru_cache`. Рекомендую к ознакомлению.
