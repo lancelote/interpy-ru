@@ -10,8 +10,8 @@ for counter, value in enumerate(some_list):
     print(counter, value)
 ```
 
-Это не всё. `enumerate` принимает также необязательные аргументы, с помощью
-которых она становится ещё полезнее.
+Это не всё! `enumerate` принимает также необязательный аргумент, с помощью
+которого она становится ещё полезнее.
 
 ```python
 my_list = ['apple', 'banana', 'grapes', 'pear']
