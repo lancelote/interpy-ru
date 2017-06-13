@@ -95,6 +95,8 @@ Python - это невероятный язык с опытным и друже�
 - [Английский](https://github.com/yasoob/intermediatePython)
 - [Китайский](https://github.com/eastlakeside/interpy-zh)
 - [Русский](https://github.com/lancelote/interpy-ru)
+- [Корейский](https://github.com/DDanggle/interpy-kr)
+- [Португальский](https://github.com/joanasouza/intermediatePython)
 
 ## Отзывы, предложения и помощь
 
