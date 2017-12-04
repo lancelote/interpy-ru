@@ -30,7 +30,7 @@ $ pip install virtualenv
 Две основные команды:
 
 -  `$ virtualenv myproject`
--  `$ source bin/activate`
+-  `$ source myproject/bin/activate`
 
 Первая создаст новое изолированное окружение в папке `myproject`, а вторая
 активирует это окружение.
