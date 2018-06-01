@@ -27,7 +27,8 @@ bar = foo
 bar += ['bye']
 
 print(foo)
-# Вывод: ['hi']
+# Ожидаемый вывод: ['hi']
+# Вывод: ['hi', 'bye']
 
 print(bar)
 # Вывод: ['hi', 'bye']
