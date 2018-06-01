@@ -1,2 +1,6 @@
 # IDE Settings
 .idea/
+
+# emacs
+\#*\#
+.\#*
