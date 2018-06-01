@@ -112,9 +112,46 @@ def profile():
     name = "Danny"
     age = 30
     return name, age
+
+profile_name, profile_age = profile()
+print(profile_name)
+# Вывод: Danny
+
+print(profile_age)
+# Вывод: 30
 ```
 
-Это лучший вариант решения проблемы вместе с возвратом списка или словаря.
-Не используйте глобальные переменные, если точно не уверены в том, что делаете.
-`global` может быть неплохим вариантом в отдельных редких случаях, но точно
-не всегда.
+Не забывайте - в примере выше возвращается кортеж (несмотря на отсутствие скобок), а не отдельные значения. Если вы хотите пойти на один шаг дальше, то попробуйте использовать [namedtuple](https://docs.python.org/3/library/collections.html#collections.namedtuple). Пример:
+
+```python
+from collection import namedtuple
+
+def profile():
+    Person = namedtuple('Person', 'name age')
+	return Person(name="Danny", age=31)
+
+# Использование как namedtuple
+p = profile()
+print(p, type(p))
+# Person(name='Danny', age=31) <class '__main__.Person'>
+print(p.name)
+# Danny
+print(p.age
+# 31
+
+# Использование как простого кортежа
+p = profile()
+print(p[0])
+# Danny
+print(p[1])
+# 31
+
+# Немедленная распаковка
+name, age = profile()
+print(name)
+# Danny
+print(age)
+# 31
+```
+
+Вместе с возвращением списка или словаря кортежи являются лучшим подходом к решению проблемы. Не используйте глобальные переменные, если точно не уверены в том, что делаете. `global` может быть неплохим вариантом в отдельных редких случаях, но точно не всегда.
