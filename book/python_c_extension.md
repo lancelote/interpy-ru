@@ -244,7 +244,7 @@ static PyObject* addList_add(PyObject* self, PyObject* args){
   long length = PyList_Size(listObj);
 
   // Проходимся по всем элементам
-  int i, sum =0;
+  long i, sum =0;
   for(i = 0; i < length; i++){
     // Получаем элемент из списка - он также Python-объект
     PyObject* temp = PyList_GetItem(listObj, i);
