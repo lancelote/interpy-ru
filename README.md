@@ -72,8 +72,9 @@ Python - это невероятный язык с опытным и друже�
 
 ## Скачать / читать книгу
 
- - [Онлайн версия на gitbook][1]
- - [Скачать с gitbook (pdf, mobi, epub)][3]
+ - [Онлайн версия на gitbook][4]
+ - [Онлайн версия на legacy gitbook][1]
+ - [Скачать с legacy gitbook (pdf, mobi, epub)][3]
  - [Скачать с github (pdf, mobi, epub)][2]
 
 ## Автор
@@ -113,3 +114,4 @@ Python - это невероятный язык с опытным и друже�
  [1]: https://lancelote.gitbooks.io/intermediate-python/content/
  [2]: https://github.com/lancelote/interpy-ru/releases/tag/v1.2.0
  [3]: https://www.gitbook.com/book/lancelote/intermediate-python/details
+ [4]: https://pavel-karateev.gitbook.io/intermediate-python/
