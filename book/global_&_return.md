@@ -136,7 +136,7 @@ print(p, type(p))
 # Person(name='Danny', age=31) <class '__main__.Person'>
 print(p.name)
 # Danny
-print(p.age
+print(p.age)
 # 31
 
 # Использование как простого кортежа
