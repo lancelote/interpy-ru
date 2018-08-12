@@ -1,222 +1,206 @@
-Classes
--------
+# Классы
 
-Classes are the core of Python. They give us a lot of power but it is
-really easy to misuse this power. In this section I will share some
-obscure tricks and caveats related to ``classes`` in Python. Let's get
-going!
+Классы - это ядро Python. Они дают широкие возможности, но их легко неправильно
+использовать. В этой главе я расскажу про некоторые трюки в работе с классами и
+сделаю несколько предостережений. Давайте начнем!
 
-1. Instance & Class variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+## Переменные экземпляра и класса
 
-Most beginners and even some advanced Python programmers do not
-understand the distinction between instance and class variables. Their
-lack of understanding forces them to use these different types of
-variables incorrectly. Let's understand them.
+Большинство начинающих, а иногда и опытных Python разработчиков не понимают до
+конца различия между переменными экземпляра и переменными класса. Это приводит
+к некорректному использованию этих различных типов переменных. Давайте
+разберемся.
 
-The basic difference is:
+Основное различие:
 
--  Instance variables are for data which is unique to every object
--  Class variables are for data shared between different instances of a
-   class
+- Переменные экземпляров предназначены для данных уникальных для каждого
+  объекта
+- Переменные класса - для общих для всех экземпляров класса данных
 
-Let's take a look at an example:
+Посмотрим на пример:
 
-.. code:: python
+```python
+class Cal(object):
+    # pi - переменная класса
+    pi = 3.142
 
-    class Cal(object):
-        # pi is a class variable
-        pi = 3.142
+    def __init__(self, radius):
+        # self.radius - переменная экземпляра
+        self.radius = radius
 
-        def __init__(self, radius):
-            # self.radius is an instance variable
-            self.radius = radius
+    def area(self):
+        return self.pi * (self.radius ** 2)
 
-        def area(self):
-            return self.pi * (self.radius ** 2)
+a = Cal(32)
+a.area()
+# Вывод: 3217.408
+a.pi
+# Вывод: 3.142
+a.pi = 43
+a.pi
+# Вывод: 43
 
-    a = Cal(32)
-    a.area()
-    # Output: 3217.408
-    a.pi
-    # Output: 3.142
-    a.pi = 43
-    a.pi
-    # Output: 43
+b = Cal(44)
+b.area()
+# Вывод: 6082.912
+b.pi
+# Вывод: 3.142
+b.pi = 50
+b.pi
+# Вывод: 50
+```
 
-    b = Cal(44)
-    b.area()
-    # Output: 6082.912
-    b.pi
-    # Output: 3.142
-    b.pi = 50
-    b.pi
-    # Output: 50
+С использованием изменяемых переменных класса редко бывают проблемы. Поэтому
+разработчики обычно не стараются изучить тему подробнее - все и так работает!
+Если вы тоже уверены в надежности использования таких переменных, то следующий
+пример для вас:
 
-There are not many issues while using mutable class variables. This is
-the major reason due to which beginners do not try to learn more about
-this subject because everything works! If you also believe that instance
-and class variables can not cause any problem if used incorrectly then
-check the next example.
+```python
+class SuperClass(object):
+    superpowers = []
 
-.. code:: python
+    def __init__(self, name):
+        self.name = name
 
-    class SuperClass(object):
-        superpowers = []
+    def add_superpower(self, power):
+        self.superpowers.append(power)
 
-        def __init__(self, name):
-            self.name = name
+foo = SuperClass('foo')
+bar = SuperClass('bar')
+foo.name
+# Вывод: 'foo'
 
-        def add_superpower(self, power):
-            self.superpowers.append(power)
+bar.name
+# Вывод: 'bar'
 
-    foo = SuperClass('foo')
-    bar = SuperClass('bar')
-    foo.name
-    # Output: 'foo'
+foo.add_superpower('fly')
+bar.superpowers
+# Вывод: ['fly']
 
-    bar.name
-    # Output: 'bar'
+foo.superpowers
+# Вывод: ['fly']
+```
 
-    foo.add_superpower('fly')
-    bar.superpowers
-    # Output: ['fly']
+Красота неправильного использования изменяемых переменных класса. Для
+предотвращения подобных ошибок - не храните изменяемые структуры данных в
+переменных класса или понимайте зачем вам это нужно.
 
-    foo.superpowers
-    # Output: ['fly']
+## Классы нового стиля
 
-That is the beauty of the wrong usage of mutable class variables. To
-make your code safe against this kind of surprise attacks then make sure
-that you do not use mutable class variables. You may use them only if
-you know what you are doing.
+Классы нового стиля были представлены в Python 2.1, но не так много
+разработчиков знает о них даже сейчас! Отчасти это связано с сохранением
+поддержки классов старого стиля для обратной совместимости. Давайте
+рассмотрим разницу между двумя стилями:
 
-2. New style classes
-^^^^^^^^^^^^^^^^^^^^
+- Классы старого стиля ничему не наследуют
+- Классы нового стиля наследуют `object`
 
-New style classes were introduced in Python 2.1 but a lot of people do
-not know about them even now! It is so because Python also supports old
-style classes just to maintain backward compatibility. I have said a lot
-about new and old but I have not told you about the difference. Well the
-major difference is that:
+Базовый пример:
 
--  Old base classes do not inherit from anything
--  New style base classes inherit from ``object``
+```python
+class OldClass():
+    def __init__(self):
+        print('Я старый класс')
 
-A very basic example is:
+class NewClass(object):
+    def __init__(self):
+        print('Я новый модный класс')
 
-.. code:: python
+old = OldClass()
+# Вывод: Я старый класс
 
-    class OldClass():
-        def __init__(self):
-            print('I am an old class')
+new = NewClass()
+# Вывод: Я новый модный класс
+```
 
-    class NewClass(object):
-        def __init__(self):
-            print('I am a jazzy new class')
+Наследование от `object` дает новым классам доступ к определенной *магии*.
+Например, вы можете использовать оптимизацию `__slots__`, вызов `super()`
+и дескрипторы. Резюме? Всегда используйте классы нового стиля.
 
-    old = OldClass()
-    # Output: I am an old class
+**Примечание:** в Python 3 все классы нового стиля. Не важно наследует ли
+ваш класс `object` или нет. Тем не менее, хорошей идеей будет явно прописывать
+наследование.
 
-    new = NewClass()
-    # Output: I am a jazzy new class
+## Магические методы
 
-This inheritance from ``object`` allows new style classes to utilize
-some *magic*. A major advantage is that you can employ some useful
-optimizations like ``__slots__``. You can use ``super()`` and
-descriptors and the likes. Bottom line? Always try to use new-style
-classes.
+Классы в Python известны за свои магические методы, их отличительная черта -
+двойное нижнее подчеркивание с двух сторон от имени. Давайте рассмотрим
+несколько из них.
 
-**Note:** Python 3 only has new-style classes. It does not matter
-whether you subclass from ``object`` or not. However it is recommended
-that you still subclass from ``object``.
+### `__init__`
 
-3. Magic Methods
-^^^^^^^^^^^^^^^^
+Это конструктор класса. Конструктор вызывается каждый раз при создании
+экземпляра класса. Например:
 
-Python's classes are famous for their magic methods, commonly called
-**dunder** (double underscore) methods. I am going to discuss a few of
-them.
+```python
+class GetTest(object):
+    def __init__(self):
+        print('Приветствую!')
 
--  ``__init__``
+    def another_method(self):
+        print('Я другой метод, который не вызывается автоматически')
 
-It is a class initializer. Whenever an instance of a class is created
-its ``__init__`` method is called. For example:
+a = GetTest()
+# Вывод: Приветствую!
 
-.. code:: python
+a.another_method()
+# Вывод: Я другой метод, который не вызывается автоматически
+```
 
-    class GetTest(object):
-        def __init__(self):
-            print('Greetings!!')
-        def another_method(self):
-            print('I am another method which is not'
-                  ' automatically called')
+Как вы видите `__init__` вызывается при создании экземпляра класса. Вы
+также можете передавать аргументы конструктору для инициализации экземпляра:
 
-    a = GetTest()
-    # Output: Greetings!!
+```python
+class GetTest(object):
+    def __init__(self, name):
+        print('Приветствую! {0}'.format(name))
 
-    a.another_method()
-    # Output: I am another method which is not automatically
-    # called
+    def another_method(self):
+        print('Я другой метод, который не вызывается автоматически')
 
-You can see that ``__init__`` is called immediately after an instance is
-created. You can also pass arguments to the class during it's
-initialization. Like this:
+a = GetTest('Yasoob')
+# Output: Приветствую! Yasoob
 
-.. code:: python
+# Попробуем создать экземпляр без аргумента "name"
+b = GetTest()
+Traceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+TypeError: __init__() takes exactly 2 arguments (1 given)
+```
 
-    class GetTest(object):
-        def __init__(self, name):
-            print('Greetings!! {0}'.format(name))
-        def another_method(self):
-            print('I am another method which is not'
-                  ' automatically called')
+Надеюсь в общих чертах логика работы `__init__` понятна.
 
-    a = GetTest('yasoob')
-    # Output: Greetings!! yasoob
+### ``__getitem__``
 
-    # Try creating an instance without the name arguments
-    b = GetTest()
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: __init__() takes exactly 2 arguments (1 given)
+Реализация метода `__getitem__` в классе позволяет использовать на его
+экземплярах `[]` оператор. Пример:
 
-I am sure that now you understand the ``__init__`` method.
+```python
+class GetTest(object):
+    def __init__(self):
+        self.info = {
+            'name':'Yasoob',
+            'country':'Pakistan',
+            'number':12345812
+        }
 
--  ``__getitem__``
+    def __getitem__(self,i):
+        return self.info[i]
 
-Implementing **getitem** in a class allows its instances to use the []
-(indexer) operator. Here is an example:
+foo = OldClass()
+foo['title']
+# Вывод: 'Yasoob'
 
-.. code:: python
+foo['number']
+# Вывод: 36845124
+```
 
-    class GetTest(object):
-        def __init__(self):
-            self.info = {
-                'name':'Yasoob',
-                'country':'Pakistan',
-                'number':12345812
-            }
+Без реализации `__getitem__` вы бы получили следующую ошибку:
 
-        def __getitem__(self,i):
-            return self.info[i]
+```
+>>> foo['title']
 
-    foo = OldClass()
-    foo['title']
-    # Output: 'Yasoob'
-
-    foo['number']
-    # Output: 36845124
-
-Without the ``__getitem__`` method we would have got this error:
-
-.. code:: python
-
-    >>> foo['title']
-
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: 'GetTest' object has no attribute '__getitem__'
-
-.. Static, Class & Abstract methods
-.. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+Traceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+TypeError: 'GetTest' object has no attribute '__getitem__'
+```
