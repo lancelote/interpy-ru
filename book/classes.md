@@ -187,18 +187,19 @@ class GetTest(object):
     def __getitem__(self,i):
         return self.info[i]
 
-foo = OldClass()
-foo['title']
+foo = GetTest()
+
+foo['name']
 # Вывод: 'Yasoob'
 
 foo['number']
-# Вывод: 36845124
+# Вывод: 12345812
 ```
 
 Без реализации `__getitem__` вы бы получили следующую ошибку:
 
 ```
->>> foo['title']
+>>> foo['name']
 
 Traceback (most recent call last):
  File "<stdin>", line 1, in <module>

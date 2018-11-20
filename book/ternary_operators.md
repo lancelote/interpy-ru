@@ -9,14 +9,14 @@
 **Шаблон:**
 
 ```python
-condition_is_true if condition else condition_is_false
+condition_if_true if condition else condition_if_false
 ```
 
 **Пример:**
 
 ```python
-is_fat = True
-state = "fat" if is_fat else "not fat"
+is_nice = True
+state = "nice" if is_nice else "not nice"
 ```
 
 Такой подход позволяет быстро проверить условие, а не писать несколько строчек
@@ -35,10 +35,10 @@ state = "fat" if is_fat else "not fat"
 **Пример:**
 
 ```python
-fat = True
-fitness = ("худой", "толстый")[fat]
-print("Али ", fitness)
-# Вывод: Али толстый
+nice = True
+personality = ("вредная", "добрая")[nice]
+print("Кошка ", personality)
+# Вывод: Кошка добрая
 ```
 
 Это работает поскольку в Python `True == 1` и `False == 0`. Помимо кортежей
@@ -68,3 +68,31 @@ print((1/0, 2)[condition])
 условного оператора `if`. Таким образом, если один из случаев может вернуть
 ошибку или обработка обоих случаев является слишком затратной операцией, то
 вариант с кортежами точно не стоит использовать.
+
+**Сокращенный тернарный оператор**
+
+В Python также существует более краткий вариант тернарного оператора.
+Этот синтакис был добавлен в Python 2.5 и может быть использован в новых
+версиях.
+
+**Пример:**
+
+```python
+True or "Some"
+# Вывод: True
+
+False or "Some"
+# Вывод: 'Some'
+```
+
+Первое выражение (`True or "Some"`) возвращает `True` и второе - `Some`.
+
+Это удобно, когда нужно быстро проверить вернувшееся из функции значение и
+показать сообщение, если значения не было (вернулся `None`):
+
+```python
+func_output = None
+msg = func_output or "Не было возвращено данных"
+print(msg)
+# Вывод: Не было возвращено данных
+```
