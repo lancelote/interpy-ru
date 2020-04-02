@@ -35,7 +35,7 @@ print(a)
 ### Параллельная сортировка списков
 
 ```python
-data = zip(list1, list2)
+data = list(zip(list1, list2))
 data.sort()
 list1, list2 = map(lambda t: list(t), zip(*data))
 ```
