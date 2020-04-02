@@ -343,7 +343,7 @@ Animal = namedtuple('Animal', 'name age type')
 perry = Animal(name="Perry", age=31, type=Species.cat)
 drogon = Animal(name="Drogon", age=4, type=Species.dragon)
 tom = Animal(name="Tom", age=75, type=Species.cat)
-charlie = Animal(name="Charlie", age=2, type=Species.kitten)
+charlie = Animal(name="Charlie", age=2, type=Species.cat)
 
 # А теперь несколько тестов
 >>> charlie.type == tom.type
